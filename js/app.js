@@ -2,17 +2,25 @@
 const carrito = document.querySelector(".carrito");
 const listaComidas = document.querySelector(".contenedor-objetos-menu");  
 const articulosCarrito = []; /*aca iran todos los objetos comprados*/
-const iconoCarrito = document.querySelector('.boton-carrito')
+const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */
+
+
 //evenlisteners 
 listaComidas.addEventListener('click', agregarPedido);  
-iconoCarrito.addEventListener('click',(e)=>{ 
+iconoCarrito.addEventListener('click', mostrarMenu)
+
+
+//funciones  
+/* esta funcuo*/
+function mostrarMenu (e){  
+
     if(carrito.style.right < "65px"){
     e.preventDefault();  
     carrito.style.right = "65px"; /*para poner el carrito en un sitio visible*/
     carrito.style.transition = ".5s"/*para que tenga una transicion suave */
-    iconoCarrito.classList.add("fa-bounce");  
+    iconoCarrito.classList.add("fa-bounce");  /*para agregar la animacion al boton*/
     setTimeout(()=>{
-        iconoCarrito.classList.remove("fa-bounce")
+        iconoCarrito.classList.remove("fa-bounce")/*se quita la animacion luego de 800 milisegundos */
     },800) 
 } else{
     carrito.style.right = "-1000px"; 
@@ -22,9 +30,7 @@ iconoCarrito.addEventListener('click',(e)=>{
     },800)  
     carrito.style.transition = ".5s"
 }
-})
-console.log(iconoCarrito.classList);
-//funciones
+}
 function agregarPedido(e){
     e.preventDefault();  
     if(e.target.classList.contains("boton-comprar")){ 
