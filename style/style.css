@@ -340,7 +340,8 @@ ul{
 
 /*fin del boton de chat ws y carrito*/ 
 /* inicio del carrito de compra */ 
-.carrito{  
+.carrito{   
+    padding: 10px;
     position: fixed;
     height: 70vh; 
     width: 40vw; 
@@ -354,11 +355,12 @@ table{
     width: 100%;  
     display: flex; 
     justify-content: center; 
-} 
+}  
+
 tbody, td, tfoot, th, thead, tr {
     display: flex; 
     padding-top: 5px;
-    gap: 70px;
+    gap: 50px;
 }
 .line{  
     border-radius: 50px;  
@@ -370,5 +372,8 @@ th{
     font-family: sans-serif;
     font-size: 15px;
 }  
-
+.contenedor-carrito{
+    display:flex ; 
+    flex-direction: column;
+}
 /* fin del carrito de compra */
