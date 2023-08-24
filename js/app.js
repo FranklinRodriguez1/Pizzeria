@@ -2,7 +2,9 @@
 const carrito = document.querySelector(".carrito");
 const listaComidas = document.querySelector(".contenedor-objetos-menu");  
 const articulosCarrito = []; /*aca iran todos los objetos comprados*/
-const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */
+const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */ 
+const contenedorCarrito = document.querySelector('.carrito tbody');
+console.log(contenedorCarrito);
 
 
 //evenlisteners 
@@ -11,7 +13,7 @@ iconoCarrito.addEventListener('click', mostrarMenu)
 
 
 //funciones  
-/* esta funcuo*/
+/* mostrar menu hace mostrar el carrito cuando le dan click*/
 function mostrarMenu (e){  
 
     if(carrito.style.right < "65px"){
@@ -30,22 +32,63 @@ function mostrarMenu (e){
     },800)  
     carrito.style.transition = ".5s"
 }
-}
+} 
+/*fin de mostrar menu*/ 
+
 function agregarPedido(e){
     e.preventDefault();  
-    if(e.target.classList.contains("boton-comprar")){ 
-        const pizzaSeleccionada = e.parentElement;   
-        leerPedido(pizzaSeleccionada)
-    } 
+    if(e.target.classList.contains("comprar-button")){  
+        const pizzaSeleccionada = e.target.parentElement.parentElement;     
+        leerPedido(pizzaSeleccionada)  
+        console.log(pizzaSeleccionada);
+    }  
 } 
 
 function leerPedido (pedido){ 
-    //se crea un objeto con todos los datos de la pizza que se esta comprando 
-    let infoCurso ={
-        nombre:pedido.querySelector(('.nombre-pizza')),
-        precio: pedido.querySelector('.precio'), 
+     //se crea un objeto con todos los datos de la pizza que se esta comprando 
+    const infoPizza ={
+        nombre:pedido.querySelector('.nombre-pizza').textContent,
+        precio: pedido.querySelector('.precio').textContent, 
         cantidad : 1, 
-        imagen : pedido.querySelector('.photo-pizza'),
-        id:pedido.querySelector(".comprar-button").getAttribute("data-id")
-    } 
+        imagen : pedido.querySelector('.photo-pizza').src,
+        id:pedido.querySelector(".comprar-button").getAttribute("data-id"),
+    }     
+    console.log(infoPizza.id);
+    // revisar si un elemento ya existe en el carrito
+    const existe = articulosCarrito.some(pizza => pizza.id === infoPizza.id)
+if(existe){
+    //actualizamos la cantidad 
+    articulosCarrito.map(pizza =>{
+        if(pizza.id === infoPizza.id){
+            pizza.cantidad++
+            const precioNumero = Number.parseInt(infoPizza.precio);//convierto de string a int
+            pizza.precio = precioNumero * pizza.cantidad; 
+            return pizza; 
+        }else{
+            return pizza
+        }
+    })
+}else{
+    articulosCarrito.push(infoPizza); //agrega elementos al array  
 } 
+carritoHtml() // llama funcion que guarda en el icono carrito
+}  
+function carritoHtml (){
+    //limpiar HTML 
+    // limpiarHTML() 
+    articulosCarrito.forEach((pizza) =>{ 
+        const row = document.createElement('tr')
+        row.innerHTML = `
+        <td><img src="${pizza.imagen}" width ="100px"><td/>
+            <td>${pizza.nombre}<td/>
+            <td>${pizza.precio}<td/>
+            <td>${pizza.cantidad}<td/>
+            <td>
+                <a href="#" class="borrar-curso" data-id="${pizza.id}"> X </a>
+            <td/>
+    `;
+    contenedorCarrito.appendChild(row)
+    console.log(object);
+    })
+} 
+
