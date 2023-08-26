@@ -340,16 +340,18 @@ ul{
 
 /*fin del boton de chat ws y carrito*/ 
 /* inicio del carrito de compra */ 
-.carrito{   
+.carrito{    
+    background-color: #ffffff;
     padding: 10px;
     position: fixed;
     height: 70vh; 
-    width: 40vw; 
-    background-color: #ffffff;
-    overflow-y: scroll; 
+    width: 40vw;  
     right: -1000px; 
     bottom: 55px; 
     border-radius: 5px;
+    overflow-y: scroll; 
+    display: flex; 
+    flex-flow: column nowrap;  
 }   
 table{
     width: 100%;  
@@ -360,7 +362,7 @@ table{
 tbody, td, tfoot, th, thead, tr {
     display: flex; 
     padding-top: 5px;
-    gap: 50px;
+    gap: 70px;
 }
 .line{  
     border-radius: 50px;  
@@ -374,6 +376,19 @@ th{
 }  
 .contenedor-carrito{
     display:flex ; 
-    flex-direction: column;
+    flex-direction: column; 
+} 
+.box-precio{   
+    position: relative;
+    height: 10%; 
+    background-color: #d42626; 
+    display: flex; 
+    flex-direction: row; 
+    
+} 
+.box-precio p{
+    color: white; 
+    font-size: 20px; 
+    font-weight: 700;
 }
 /* fin del carrito de compra */
