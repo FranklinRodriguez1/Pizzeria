@@ -60,17 +60,19 @@ function leerPedido (pedido){
 }  
 function agregarElemento (pizza){
     articulosCarrito.push(pizza) 
-    console.log(articulosCarrito); 
     carritoHTML()
 }  
 function limpiarHTML(){
-    contenedorCarrito.innerHTML = "";
-}
-function carritoHTML() {
+    while(contenedorCarrito.firstChild){
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    };
+}; 
+
+function carritoHTML() { 
+    limpiarHTML()
     articulosCarrito.forEach((pizza) => {
-      const row = document.createElement("tr"); 
-      
-      row.innerHTML = `
+        const row = document.createElement("tr");
+        row.innerHTML = `
         <td><img src="${pizza.imagen}" width="100px"></td>
             <td>${pizza.nombre}</td>
             <td>$ ${pizza.precio}</td>
@@ -78,7 +80,8 @@ function carritoHTML() {
             <td>
                 <a href="#" class="borrar-curso" data-id="${pizza.id}"> X </a>
             </td>
-      `;
+        `;
       contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody
-    });
-  }
+    }); 
+    console.log(articulosCarrito); 
+}
