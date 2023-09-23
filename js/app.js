@@ -1,16 +1,29 @@
-//variables
+//variables 
 const carrito = document.querySelector(".carrito");
 const listaComidas = document.querySelector(".contenedor-objetos-menu");  
 const articulosCarrito = []; /*aca iran todos los objetos comprados*/
-const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */ 
-let contenedorCarrito = document.querySelector(".carrito tbody")
+const iconoCarrito = document.querySelector('.boton-carrito'); /*es el boton del carrito */ 
+let contenedorCarrito = document.querySelector(".carrito tbody");
+let eliminarPizza = document.querySelector('.borrar-curso');   
+let precioTotal = document.querySelector(".precio-total") 
+let precios = [] 
 
-//evenlisteners 
+
+//evenlisteners  
+
 listaComidas.addEventListener('click', agregarPedido);  
-iconoCarrito.addEventListener('click', mostrarMenu)
+iconoCarrito.addEventListener('click', mostrarMenu);  
 
 
-//funciones  
+
+
+//funciones   
+function eliminar (e){ 
+    e.target.preventDefault()
+    if(e.target.contains("borrar-curso")){ 
+        
+    }
+}
 /* mostrar menu hace mostrar el carrito cuando le dan click*/
 function mostrarMenu (e){  
 
@@ -49,18 +62,26 @@ function leerPedido (pedido){
         cantidad : 1, 
         imagen : pedido.querySelector('.photo-pizza').src,
         id:pedido.querySelector(".comprar-button").getAttribute("data-id"),
-    }   
-    const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
+    }; 
+    precios.push(Number(infoPizza.precio.slice(0, infoPizza.precio.length - 1)))
+
+    const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id) // es una variable para validar si el articulo ingresado en el carrito tiene la misma id que alguno que ya se encuentre dentro del mismo
+    let precioNumber = Number(infoPizza.precio.slice(0, infoPizza.precio.length -1 )) //es el nuevo precio del objeto o del carrito 
     if(existe){  
-        existe.cantidad++  
-        limpiarHTML()
+        articulosCarrito.map(pizza =>{
+            if(pizza.id === infoPizza.id){
+                pizza.cantidad++;  
+                let nuevoPrecio = existe.cantidad * precioNumber    
+                pizza.precio =  nuevoPrecio + "$" 
+                return pizza
+            }else{
+                return pizza
+            }
+        })  
+    }else{
+        articulosCarrito.push(infoPizza)  
     }
-    agregarElemento(infoPizza)
-    
-}  
-function agregarElemento (pizza){
-    articulosCarrito.push(pizza) 
-    carritoHTML()
+    carritoHTML() 
 }  
 function limpiarHTML(){
     while(contenedorCarrito.firstChild){
@@ -75,13 +96,13 @@ function carritoHTML() {
         row.innerHTML = `
         <td><img src="${pizza.imagen}" width="100px"></td>
             <td>${pizza.nombre}</td>
-            <td>$ ${pizza.precio}</td>
+            <td>${pizza.precio}</td>
             <td>${pizza.cantidad}</td>
             <td>
                 <a href="#" class="borrar-curso" data-id="${pizza.id}"> X </a>
             </td>
-        `;
+        ` 
       contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody
-    }); 
-    console.log(articulosCarrito); 
+    } ); 
+    
 }

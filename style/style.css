@@ -195,7 +195,8 @@ ul{
     text-align: justify; 
     padding: 2px; 
     font-weight: 400;  
-} 
+}  
+
 .boton-comprar{ 
     display: flex;   
     position: relative;
@@ -273,6 +274,17 @@ ul{
     display: flex; 
     flex-flow: column nowrap; 
     
+} 
+.carrusel-item p{
+    text-align: center; 
+    margin: 5px;  
+    padding: 5px;
+    border: 1px gray solid; 
+    border-radius: 10px;  
+    width: 98%;  
+} 
+.carrusel-item img{
+    height: 60vh;
 }
 
 .descripcion-ubi{  
@@ -287,15 +299,7 @@ ul{
     border-radius: 10px ; 
     
 }
-.carrusel-item p{
-    text-align: center; 
-    margin: 5px;  
-    padding: 5px;
-    border: 1px gray solid; 
-    border-radius: 10px;  
-    width: 98%; 
-    
-}
+
 .titulo-ubi{ 
     margin-bottom: 20px;
     font-size: 25px; 
@@ -303,9 +307,7 @@ ul{
     font-family: 'Rubik Bubbles'; 
     color: rgb(44, 44, 172);
 }  
-.img3{
-    max-height: 485px ;
-}
+
 
 /* inicio del footer*/  
 
@@ -386,11 +388,10 @@ ul{
 /* inicio del carrito de compra */ 
 .carrito{    
     background-color: #ffffff;
-    padding: 10px;
     position: fixed;
     height: 70vh; 
-    width: 40vw;  
-    right: -1000px; 
+    width: 40vw;   
+    right: -1000px;
     bottom: 55px; 
     border-radius: 5px;
     overflow-y: scroll; 
@@ -421,18 +422,26 @@ th{
 .contenedor-carrito{
     display:flex ; 
     flex-direction: column; 
+    padding: 0; 
+    margin: 0; 
 } 
 .box-precio{   
-    position: relative;
-    height: 10%; 
+    position: absolute; 
+    bottom: 5px;
+    height: 10%;  
+    width: 39vw;
     background-color: #d42626; 
-    display: flex; 
-    flex-direction: row; 
+    display: flex;  
+    justify-content: right;  
+    align-items: flex-start;
+    flex-direction: row;  
     
 } 
-.box-precio p{
+.box-precio p{ 
+    display: block;
     color: white; 
     font-size: 20px; 
-    font-weight: 700;
+    font-weight: 700; 
+    height: 100%; 
 }
 /* fin del carrito de compra */
