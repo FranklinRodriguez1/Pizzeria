@@ -66,7 +66,7 @@ function limpiarHTML(){
     while(contenedorCarrito.firstChild){
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     };
-}; 
+};  
 
 function carritoHTML() { 
     limpiarHTML()
