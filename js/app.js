@@ -52,16 +52,26 @@ function leerPedido (pedido){
     }   
     const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
     if(existe){  
-        existe.cantidad++  
-        limpiarHTML()
+        articulosCarrito.map(pizza =>{
+            if(pizza.id === infoPizza.id){
+                pizza.cantidad++;  
+                // let nuevoPrecio = existe.cantidad * precioNumber    
+                // pizza.precio =  nuevoPrecio + "$" 
+                return pizza
+            }else{
+                return pizza
+            }
+        })  
+    }else{
+        articulosCarrito.push(infoPizza)  
     }
-    agregarElemento(infoPizza)
-    
-}  
-function agregarElemento (pizza){
-    articulosCarrito.push(pizza) 
-    carritoHTML()
-}  
+    carritoHTML() 
+}
+function limpiarHTML(){
+    while(contenedorCarrito.firstChild){
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    };
+};    
 function limpiarHTML(){
     while(contenedorCarrito.firstChild){
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
