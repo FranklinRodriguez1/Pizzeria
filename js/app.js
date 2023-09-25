@@ -48,15 +48,17 @@ function leerPedido (pedido){
         precio: pedido.querySelector('.precio').textContent, 
         cantidad : 1, 
         imagen : pedido.querySelector('.photo-pizza').src,
-        id:pedido.querySelector(".comprar-button").getAttribute("data-id"),
-    }   
+        id:pedido.querySelector(".comprar-button").getAttribute("data-id"), 
+        precioNumber : Number(pedido.querySelector('.precio').textContent.slice(0, pedido.querySelector('.precio').textContent.length -1))
+    } 
+    console.log(infoPizza.precioNumber);
     const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
     if(existe){  
         articulosCarrito.map(pizza =>{
             if(pizza.id === infoPizza.id){
                 pizza.cantidad++;  
-                // let nuevoPrecio = existe.cantidad * precioNumber    
-                // pizza.precio =  nuevoPrecio + "$" 
+                let nuevoPrecio = pizza.cantidad * pizza.precioNumber   
+                pizza.precio = nuevoPrecio
                 return pizza
             }else{
                 return pizza
@@ -71,13 +73,7 @@ function limpiarHTML(){
     while(contenedorCarrito.firstChild){
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     };
-};    
-function limpiarHTML(){
-    while(contenedorCarrito.firstChild){
-        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
-    };
-};  
-
+};
 function carritoHTML() { 
     limpiarHTML()
     articulosCarrito.forEach((pizza) => {
@@ -85,13 +81,12 @@ function carritoHTML() {
         row.innerHTML = `
         <td><img src="${pizza.imagen}" width="100px"></td>
             <td>${pizza.nombre}</td>
-            <td>$ ${pizza.precio}</td>
+            <td>${pizza.precio}</td>
             <td>${pizza.cantidad}</td>
             <td>
                 <a href="#" class="borrar-curso" data-id="${pizza.id}"> X </a>
             </td>
         `;
       contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody
-    }); 
-    console.log(articulosCarrito); 
+    });
 }
