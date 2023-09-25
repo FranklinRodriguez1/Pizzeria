@@ -111,8 +111,8 @@ ul{
 
 .mensaje-presentacion{  /*caja mensaje Principal*/
     position: relative;  
-    right: 20px; 
-    padding: auto;
+    right: 0px; 
+    padding: 10px;
 }
 .mensaje{  
     position: relative;
