@@ -1,29 +1,16 @@
-//variables 
+//variables
 const carrito = document.querySelector(".carrito");
 const listaComidas = document.querySelector(".contenedor-objetos-menu");  
 const articulosCarrito = []; /*aca iran todos los objetos comprados*/
-const iconoCarrito = document.querySelector('.boton-carrito'); /*es el boton del carrito */ 
-let contenedorCarrito = document.querySelector(".carrito tbody");
-let eliminarPizza = document.querySelector('.borrar-curso');   
-let precioTotal = document.querySelector(".precio-total") 
-let precios = [] 
+const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */ 
+let contenedorCarrito = document.querySelector(".carrito tbody")
 
-
-//evenlisteners  
-
+//evenlisteners 
 listaComidas.addEventListener('click', agregarPedido);  
-iconoCarrito.addEventListener('click', mostrarMenu);  
+iconoCarrito.addEventListener('click', mostrarMenu)
 
 
-
-
-//funciones   
-function eliminar (e){ 
-    e.target.preventDefault()
-    if(e.target.contains("borrar-curso")){ 
-        
-    }
-}
+//funciones  
 /* mostrar menu hace mostrar el carrito cuando le dan click*/
 function mostrarMenu (e){  
 
@@ -61,31 +48,32 @@ function leerPedido (pedido){
         precio: pedido.querySelector('.precio').textContent, 
         cantidad : 1, 
         imagen : pedido.querySelector('.photo-pizza').src,
-        id:pedido.querySelector(".comprar-button").getAttribute("data-id"),
-    }; 
-    precios.push(Number(infoPizza.precio.slice(0, infoPizza.precio.length - 1)))
-
-    const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id) // es una variable para validar si el articulo ingresado en el carrito tiene la misma id que alguno que ya se encuentre dentro del mismo
-    let precioNumber = Number(infoPizza.precio.slice(0, infoPizza.precio.length -1 )) //es el nuevo precio del objeto o del carrito 
+        id:pedido.querySelector(".comprar-button").getAttribute("data-id"), 
+        precioNumber : Number(pedido.querySelector('.precio').textContent.slice(0, pedido.querySelector('.precio').textContent.length -1))
+    } 
+    console.log(infoPizza.precioNumber);
+    const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
     if(existe){  
         articulosCarrito.map(pizza =>{
             if(pizza.id === infoPizza.id){
                 pizza.cantidad++;  
-                let nuevoPrecio = existe.cantidad * precioNumber    
-                pizza.precio =  nuevoPrecio + "$" 
+                let nuevoPrecio = pizza.cantidad * pizza.precioNumber   
+                pizza.precio = nuevoPrecio
                 return pizza
-            }})  
+            }else{
+                return pizza
+            }
+        })  
     }else{
         articulosCarrito.push(infoPizza)  
     }
     carritoHTML() 
-}   
+}
 function limpiarHTML(){
     while(contenedorCarrito.firstChild){
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     };
-}; 
-
+};
 function carritoHTML() { 
     limpiarHTML()
     articulosCarrito.forEach((pizza) => {
@@ -98,8 +86,7 @@ function carritoHTML() {
             <td>
                 <a href="#" class="borrar-curso" data-id="${pizza.id}"> X </a>
             </td>
-        ` 
+        `;
       contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody
-    } ); 
-    
+    });
 }
