@@ -209,12 +209,14 @@ ul{
     bottom: -5px;  
     
 } 
-.comprar-button, .boton-comprar{ 
+.comprar-button{ 
     padding: 5px;
     color: rgb(255, 255, 255); 
     text-decoration: none;  
     text-transform: uppercase; 
-    font-weight: 700;
+    font-weight: 700;  
+    height: 100%; 
+    width: 100%;
 }
 .boton-comprar:hover{
     background-color: white; 
