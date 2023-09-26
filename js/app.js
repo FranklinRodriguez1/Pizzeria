@@ -74,15 +74,12 @@ function leerPedido (pedido){
                 let nuevoPrecio = existe.cantidad * precioNumber    
                 pizza.precio =  nuevoPrecio + "$" 
                 return pizza
-            }else{
-                return pizza
-            }
-        })  
+            }})  
     }else{
         articulosCarrito.push(infoPizza)  
     }
     carritoHTML() 
-}  
+}   
 function limpiarHTML(){
     while(contenedorCarrito.firstChild){
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
