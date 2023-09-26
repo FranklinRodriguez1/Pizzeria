@@ -58,7 +58,7 @@ function leerPedido (pedido){
             if(pizza.id === infoPizza.id){
                 pizza.cantidad++;  
                 let nuevoPrecio = pizza.cantidad * pizza.precioNumber   
-                pizza.precio = nuevoPrecio
+                pizza.precio = `${nuevoPrecio}$`
                 return pizza
             }else{
                 return pizza
