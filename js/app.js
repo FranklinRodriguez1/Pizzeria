@@ -3,7 +3,8 @@ const carrito = document.querySelector(".carrito");
 const listaComidas = document.querySelector(".contenedor-objetos-menu");  
 const articulosCarrito = []; /*aca iran todos los objetos comprados*/
 const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */ 
-let contenedorCarrito = document.querySelector(".carrito tbody")
+let contenedorCarrito = document.querySelector(".carrito tbody") 
+let borrarPizza = document.querySelector('.borrar-curso')
 
 //evenlisteners 
 listaComidas.addEventListener('click', agregarPedido);  
@@ -77,14 +78,15 @@ function limpiarHTML(){
 function carritoHTML() { 
     limpiarHTML()
     articulosCarrito.forEach((pizza) => {
-        const row = document.createElement("tr");
+        const row = document.createElement("tr"); 
+        row.classList.add("elementos")
         row.innerHTML = `
         <td><img src="${pizza.imagen}" width="100px"></td>
             <td>${pizza.nombre}</td>
             <td>${pizza.precio}</td>
             <td>${pizza.cantidad}</td>
             <td>
-                <a href="#" class="borrar-curso" data-id="${pizza.id}"> X </a>
+                <a href="#" class="borrar-pizza text-light bg-danger" data-id="${pizza.id}"> X </a>
             </td>
         `;
       contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody

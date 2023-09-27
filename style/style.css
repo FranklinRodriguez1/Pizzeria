@@ -384,7 +384,8 @@ ul{
 } 
 .fa-sharp{
     color: green;
-}
+} 
+
 
 /*fin del boton de chat ws y carrito*/ 
 /* inicio del carrito de compra */ 
@@ -409,7 +410,8 @@ table{
 tbody, td, tfoot, th, thead, tr {
     display: flex; 
     padding-top: 5px;
-    gap: 70px;
+    gap: 10%; 
+    width: 100%;
 }
 .line{  
     border-radius: 50px;  
@@ -427,16 +429,15 @@ th{
     padding: 0; 
     margin: 0; 
 } 
-.box-precio{   
-    position: absolute; 
-    bottom: 5px;
-    height: 10%;  
-    width: 39vw;
+.box-precio{ 
     background-color: #d42626; 
     display: flex;  
-    justify-content: right;  
+    justify-content: left;  
     align-items: flex-start;
     flex-direction: row;  
+    bottom: 1px; 
+    position: absolute; 
+    bottom: 0px;
     
 } 
 .box-precio p{ 
@@ -444,6 +445,14 @@ th{
     color: white; 
     font-size: 20px; 
     font-weight: 700; 
-    height: 100%; 
+    height: 100%;  
+} 
+.elementos{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+} 
+.elementos:nth-last-child(1){
+    padding-right: 10px ;
 }
 /* fin del carrito de compra */
