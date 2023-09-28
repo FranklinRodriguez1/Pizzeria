@@ -393,13 +393,15 @@ ul{
     background-color: #ffffff;
     position: fixed;
     height: 70vh; 
-    width: 40vw;   
+    width: 55vw;   
     right: -1000px;
     bottom: 55px; 
-    border-radius: 5px;
+    border: 1px red solid;
+    border-radius: 10px;
     overflow-y: scroll; 
     display: flex; 
-    flex-flow: column nowrap;  
+    flex-flow: column nowrap;   
+    overflow-x:hidden ;
 }   
 table{
     width: 100%;  
@@ -410,8 +412,17 @@ table{
 tbody, td, tfoot, th, thead, tr {
     display: flex; 
     padding-top: 5px;
-    gap: 10%; 
-    width: 100%;
+    ; 
+} 
+td{
+    width: 100px; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 5%; 
+    
+} 
+thead{
+    gap: 5%;
 }
 .line{  
     border-radius: 50px;  
@@ -432,12 +443,9 @@ th{
 .box-precio{ 
     background-color: #d42626; 
     display: flex;  
-    justify-content: left;  
+    justify-content: space-around;  
     align-items: flex-start;
-    flex-direction: row;  
-    bottom: 1px; 
-    position: absolute; 
-    bottom: 0px;
+    flex-direction: row;
     
 } 
 .box-precio p{ 
@@ -454,5 +462,11 @@ th{
 } 
 .elementos:nth-last-child(1){
     padding-right: 10px ;
-}
+} 
+.borrar-pizza{
+    border-radius: 50%; 
+    width: 20px; 
+    text-indent: 5px; 
+    text-decoration: none;
+}  
 /* fin del carrito de compra */

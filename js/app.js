@@ -4,14 +4,17 @@ const listaComidas = document.querySelector(".contenedor-objetos-menu");
 const articulosCarrito = []; /*aca iran todos los objetos comprados*/
 const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */ 
 let contenedorCarrito = document.querySelector(".carrito tbody") 
-let borrarPizza = document.querySelector('.borrar-curso')
+let arrayPrecios = []
+let htmlPrecios = document.querySelector(".precio-total")  
+
+
 
 //evenlisteners 
 listaComidas.addEventListener('click', agregarPedido);  
-iconoCarrito.addEventListener('click', mostrarMenu)
+iconoCarrito.addEventListener('click', mostrarMenu) 
 
 
-//funciones  
+//funciones   
 /* mostrar menu hace mostrar el carrito cuando le dan click*/
 function mostrarMenu (e){  
 
@@ -51,8 +54,13 @@ function leerPedido (pedido){
         imagen : pedido.querySelector('.photo-pizza').src,
         id:pedido.querySelector(".comprar-button").getAttribute("data-id"), 
         precioNumber : Number(pedido.querySelector('.precio').textContent.slice(0, pedido.querySelector('.precio').textContent.length -1))
-    } 
-    console.log(infoPizza.precioNumber);
+    }
+    let sumaPrecios = 0 
+    arrayPrecios.push(infoPizza.precioNumber) 
+    for (const precio of arrayPrecios) {
+        sumaPrecios += precio
+    }  
+    htmlPrecios.innerHTML = sumaPrecios
     const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
     if(existe){  
         articulosCarrito.map(pizza =>{
@@ -85,10 +93,15 @@ function carritoHTML() {
             <td>${pizza.nombre}</td>
             <td>${pizza.precio}</td>
             <td>${pizza.cantidad}</td>
-            <td>
-                <a href="#" class="borrar-pizza text-light bg-danger" data-id="${pizza.id}"> X </a>
+            <td class="eliminarPizza">
+                <a href="#" class="borrar-pizza text-light bg-danger" data-id="${pizza.id}">X</a>
             </td>
-        `;
-      contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody
-    });
-}
+        `; 
+        contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody 
+        const borrar = row.querySelector(".eliminarPizza a")  
+        borrar.addEventListener('click',(e)=>{ 
+            e.preventDefault()
+            console.log("hola");
+        })
+    }); 
+} 
