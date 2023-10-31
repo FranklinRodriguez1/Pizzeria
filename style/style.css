@@ -13,9 +13,6 @@ body,html{
 html{
     scroll-behavior: smooth;
 }
-:root{
-    --waves-animate:wave.svg;
-}
 /*incio de estilos header*/ 
 .cabecera{
     display: flex; 
@@ -308,7 +305,23 @@ ul{
     text-align: center; 
     font-family: 'Rubik Bubbles'; 
     color: rgb(44, 44, 172);
-}  
+}   
+.mapa-ubicacion{
+    display: flex; 
+    flex-flow: row nowrap; 
+
+} 
+.ubicacion-descripcion{
+    height: 40vh; 
+    width: 40vw ; 
+    display: flex;  
+    flex-direction: column;
+    justify-content: space-around;
+} 
+.ubicacion-descripcion h2{
+    color: #8c1d1d; 
+    font-family: "Bebas Neue" ;
+}
 
 
 /* inicio del footer*/  
@@ -418,7 +431,7 @@ td{
     width: 100px; 
     justify-content: center; 
     align-items: center; 
-    gap: 5%; 
+    gap: 20px; 
     
 } 
 thead{
@@ -445,7 +458,8 @@ th{
     display: flex;  
     justify-content: space-around;  
     align-items: flex-start;
-    flex-direction: row;
+    flex-direction: row; 
+    padding-top: 10px;
     
 } 
 .box-precio p{ 
@@ -456,17 +470,27 @@ th{
     height: 100%;  
 } 
 .elementos{
-    display: flex; 
+    display: flex;  
     justify-content: center; 
     align-items: center;
-} 
-.elementos:nth-last-child(1){
-    padding-right: 10px ;
+    gap: 20px;  
+
 } 
 .borrar-pizza{
     border-radius: 50%; 
     width: 20px; 
     text-indent: 5px; 
     text-decoration: none;
-}  
+}   
+.eliminarPizza{
+    width: min-content; 
+    margin-right:2em;
+} 
+.pizzaCantidad {
+    width: min-content; 
+    margin-right:3em;
+} 
+.pizzaPrecio{
+    padding-right: 2em;
+}
 /* fin del carrito de compra */

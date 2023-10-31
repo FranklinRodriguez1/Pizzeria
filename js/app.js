@@ -1,11 +1,12 @@
 //variables
 const carrito = document.querySelector(".carrito");
 const listaComidas = document.querySelector(".contenedor-objetos-menu");  
-const articulosCarrito = []; /*aca iran todos los objetos comprados*/
+let articulosCarrito = []; /*aca iran todos los objetos comprados*/
 const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del carrito */ 
 let contenedorCarrito = document.querySelector(".carrito tbody") 
 let arrayPrecios = []
-let htmlPrecios = document.querySelector(".precio-total")  
+let htmlPrecios = document.querySelector(".precio-total")   
+let sumaPrecios = 0
 
 
 
@@ -55,12 +56,23 @@ function leerPedido (pedido){
         id:pedido.querySelector(".comprar-button").getAttribute("data-id"), 
         precioNumber : Number(pedido.querySelector('.precio').textContent.slice(0, pedido.querySelector('.precio').textContent.length -1))
     }
-    let sumaPrecios = 0 
-    arrayPrecios.push(infoPizza.precioNumber) 
+    
+    arrayPrecios.push(infoPizza.precioNumber)  
+    let precioxd = 0
     for (const precio of arrayPrecios) {
-        sumaPrecios += precio
-    }  
-    htmlPrecios.innerHTML = sumaPrecios
+        precioxd += precio
+    } 
+    sumaPrecios = precioxd
+
+const opcionesDeFormato = {
+    style: 'currency',
+    currency: 'COP', // Cambia esto a la moneda que desees (por ejemplo, 'EUR' para euros). 
+    minimumFractionDigits: 0
+};
+
+const numeroFormateado = sumaPrecios.toLocaleString('es-ES', opcionesDeFormato);
+
+    htmlPrecios.innerHTML = numeroFormateado
     const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
     if(existe){  
         articulosCarrito.map(pizza =>{
@@ -89,10 +101,10 @@ function carritoHTML() {
         const row = document.createElement("tr"); 
         row.classList.add("elementos")
         row.innerHTML = `
-        <td><img src="${pizza.imagen}" width="100px"></td>
+        <td><img src="${pizza.imagen}" width="120px" style="border-radius:10px"></td>
             <td>${pizza.nombre}</td>
-            <td>${pizza.precio}</td>
-            <td>${pizza.cantidad}</td>
+            <td class= "pizzaPrecio">${pizza.precio}</td>
+            <td class= "pizzaCantidad">${pizza.cantidad}</td>
             <td class="eliminarPizza">
                 <a href="#" class="borrar-pizza text-light bg-danger" data-id="${pizza.id}">X</a>
             </td>
@@ -101,7 +113,16 @@ function carritoHTML() {
         const borrar = row.querySelector(".eliminarPizza a")  
         borrar.addEventListener('click',(e)=>{ 
             e.preventDefault()
-            console.log("hola");
+            if(e.target.classList.contains('borrar-pizza')){ 
+                const pizzaId = e.target.getAttribute("data-id")
+                articulosCarrito = articulosCarrito.filter( pizza => pizza.id !== pizzaId) 
+                carritoHTML()   
+                let precio = pizza.precio
+                let precioBorrar = -Number(precio.slice( 0, pizza.precio.length - 1));   
+                sumaPrecios -= precioBorrar
+            
+            } 
+            
         })
     }); 
 } 
