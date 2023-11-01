@@ -13,13 +13,6 @@ const opcionesDeFormato = {
     currency: 'COP',
     minimumFractionDigits: 0
 };
-// let numeroFormateado; 
-// let sumaTotal = 0
-// let arregloejemplo = [ 50, 30, -30, -40, -10, 50]
-// for (const suma of arregloejemplo) {
-//     sumaTotal = sumaTotal + suma; 
-// } 
-// console.log(sumaTotal);
 
 //evenlisteners 
 listaComidas.addEventListener('click', agregarPedido);  
