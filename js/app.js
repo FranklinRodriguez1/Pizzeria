@@ -6,9 +6,20 @@ const iconoCarrito = document.querySelector('.boton-carrito') /*es el boton del 
 let contenedorCarrito = document.querySelector(".carrito tbody") 
 let arrayPrecios = []
 let htmlPrecios = document.querySelector(".precio-total")   
-let sumaPrecios = 0
+let sumaPrecios = 0  
 
-
+const opcionesDeFormato = {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0
+};
+// let numeroFormateado; 
+// let sumaTotal = 0
+// let arregloejemplo = [ 50, 30, -30, -40, -10, 50]
+// for (const suma of arregloejemplo) {
+//     sumaTotal = sumaTotal + suma; 
+// } 
+// console.log(sumaTotal);
 
 //evenlisteners 
 listaComidas.addEventListener('click', agregarPedido);  
@@ -45,7 +56,17 @@ function agregarPedido(e){
         leerPedido(pizzaSeleccionada)  
     }  
 } 
-
+function actualizarPrecios (array){ 
+    let acumulador = 0
+    for (const precios of array){ 
+        acumulador += precios  
+        // console.log(valorSumado); 
+        numeroFormateado = acumulador.toLocaleString('es-ES', opcionesDeFormato);
+        htmlPrecios.innerHTML = numeroFormateado
+    }  
+    return acumulador 
+    
+}
 function leerPedido (pedido){ 
      //se crea un objeto con todos los datos de la pizza que se esta comprando 
     const infoPizza ={
@@ -56,23 +77,11 @@ function leerPedido (pedido){
         id:pedido.querySelector(".comprar-button").getAttribute("data-id"), 
         precioNumber : Number(pedido.querySelector('.precio').textContent.slice(0, pedido.querySelector('.precio').textContent.length -1))
     }
-    
     arrayPrecios.push(infoPizza.precioNumber)  
-    let precioxd = 0
-    for (const precio of arrayPrecios) {
-        precioxd += precio
-    } 
+    var precioxd = 0  
+    precioxd = actualizarPrecios(arrayPrecios)
     sumaPrecios = precioxd
-
-const opcionesDeFormato = {
-    style: 'currency',
-    currency: 'COP', // Cambia esto a la moneda que desees (por ejemplo, 'EUR' para euros). 
-    minimumFractionDigits: 0
-};
-
-const numeroFormateado = sumaPrecios.toLocaleString('es-ES', opcionesDeFormato);
-
-    htmlPrecios.innerHTML = numeroFormateado
+    
     const existe = articulosCarrito.find(pizza => pizza.id === infoPizza.id)
     if(existe){  
         articulosCarrito.map(pizza =>{
@@ -109,7 +118,8 @@ function carritoHTML() {
                 <a href="#" class="borrar-pizza text-light bg-danger" data-id="${pizza.id}">X</a>
             </td>
         `; 
-        contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody 
+        contenedorCarrito.appendChild(row); //agrega elementos a la etiqueta tbody  
+        
         const borrar = row.querySelector(".eliminarPizza a")  
         borrar.addEventListener('click',(e)=>{ 
             e.preventDefault()
@@ -118,11 +128,11 @@ function carritoHTML() {
                 articulosCarrito = articulosCarrito.filter( pizza => pizza.id !== pizzaId) 
                 carritoHTML()   
                 let precio = pizza.precio
-                let precioBorrar = -Number(precio.slice( 0, pizza.precio.length - 1));   
-                sumaPrecios -= precioBorrar
-            
+                let precioBorrar = -Number(precio.slice( 0, pizza.precio.length - 1));     
+                arrayPrecios.push(precioBorrar) 
+                actualizarPrecios(arrayPrecios)
             } 
             
         })
     }); 
-} 
+}  
