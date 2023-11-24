@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="style.css"> <!--archivo css propio-->
+    <link rel="stylesheet" href="style/style.css"> <!--archivo css propio-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">  <!--archivo css boostrap--> 
+    <link rel="stylesheet" href="style/normalize.css">
     <script src="https://kit.fontawesome.com/d8ed2fc50c.js" crossorigin="anonymous"></script> <!--font awesome libreria-->
 
-    <title>Napols Pizza</title>
+    <title>Pizza Pizza</title>
 </head>
 <body>  
     <header class="cabecera"> <!--incio del header-->
         <div class="menu-accesos"> 
             <ul>
-                <li class="accesos"><a href="#menu">Menu Napol's </a></li>
+                <li class="accesos"><a href="#menu">Menu Pizza </a></li>
                 <li class="accesos"><a href="#ubicanos">Ubicanos</a></li>
-                <li class="accesos"><a href="https://wa.me/573016347818?text=Hola%quiero%una%pizza">Contactanos</a></li>
+                <li class="accesos"><a href="https://wa.me/573016347818?text=Hola%quiero%una%pizza">Contactanos</a></li>  
             </ul>
         </div>
         <div class="nombre-empresa">
             <img src="logo-header.png" alt="">
-            <p class="empresa-nombre">Napols Pizza</p> 
+            <p class="empresa-nombre">Pizza Pizza</p> 
         </div> 
     </header><!--fin del header--> 
     <section class="Contenido-general"> 
         <div class="presentacion">  
             <img src="fondo-presentacion.jpg" alt="" class="fondo">  
             <div class="mensaje-presentacion">
-                    <p class="mensaje">Todo lo que necesitas es amor  o mejor una pizza</p>
+                    <p class="mensaje">Todo lo que necesitas es amor o mejor amor y una pizza</p>
             </div>   
         </div> 
         <div  id="menu" class="menu"> 
@@ -38,103 +39,153 @@
                 <img src="logo-menu2.jpeg" alt="" class="logo-menu">
             </div>
             <div class="contenedor-objetos-menu"> 
-                <div class="item 1">
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" >
+                    <p class="nombre-pizza">Pizza Carnes</p> 
+                    <img  class="photo-pizza" src="pizzas/pizza-carnes.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar"><a data-id="1" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 2"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" > 
+                    <p class="nombre-pizza">Pizza Napolitana</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-napolitana.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar"><a data-id="2" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 3">
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item">
+                    <p class="nombre-pizza">Pizza Bolognesa</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-bolognesa.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar"><a data-id="3" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 4"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" > 
+                    <p class="nombre-pizza">Pizza Hawaiana</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-hawaiana.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar"><a data-id="4" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 5"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" > 
+                    <p class="nombre-pizza">Pizza Montañera</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-montañera.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p> 
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar "><a data-id="5" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 6"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" > 
+                    <p class="nombre-pizza">Pizza barbacoa</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-barbacoa.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar "><a data-id="6" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 7"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item"> 
+                    <p class="nombre-pizza">Pizza Pollo</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-pollo.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar "><a data-id="7" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 8"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" > 
+                    <p class="nombre-pizza">Pizza clasica Doble</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-clasica-doble.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p> 
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar "><a data-id="8" href="" class="comprar-button">comprar</a></button>
                 </div>
-                <div class="item 9"> 
-                    <p class="nombre-pizza">pizza rica brou</p> 
-                    <img src="foto-pizza.jpg" alt=""> 
-                    <p class="precio">89.99$</p>  
+                <div class="item" > 
+                    <p class="nombre-pizza">Pizza TripleQueso</p> 
+                    <img class="photo-pizza" src="pizzas/pizza-triple-queso.jpg" alt=""> 
+                    <p class="precio">80000$</p>  
                     <p class="descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus temporibus soluta sed incidunt voluptas debitis tempore</p>
-                    <button type="button" class="boton"><a href="" class="comprar-button">comprar</a></button>
+                    <button type="button" class="boton-comprar "><a data-id="9" href="" class="comprar-button">comprar</a></button>
                 </div>
             </div>
 
         </div>     
         <div class="contenedor-ubi" id="ubicanos">     
             <div class="cabecera-ubi"  > 
-                <h2 class="titulo-contenedor">Ubicanos</h2>   
-                <img class="ubicacion-img" src="ubicacion-img.png" alt="">
+                <h2 class="titulo-contenedor">Tenemos lo que te gusta</h2>   
             </div>
             <div class="contenedor-info">
-                <div class="descripcion-ubi"> 
-                    <img class="descripcion-img" src="descripcion-img.jpg" alt="">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non labore cum aliquid aliquam ad nihil voluptatum cupiditate, provident, pariatur aperiam, omnis consectetur magni dignissimos illum autem vitae rem asperiores quo!</p> 
-                    <h2 class="titulo-ubi"> Lorem ipsum dolor sit </h2>
-
+                <div class="descripcion-ubi">  
+                    <div class="carrusel-item"> 
+                        <h2 class="titulo-ubi"> Los mejores espacios  </h2> 
+                        <img class="descripcion-img" src="espacios para comer.jpg" alt="">
+                        <p>Espacios para disfrutar de una comida inolvidable acompañdo de amigos</p> 
+                        
+                    </div> 
+                    <div class="carrusel-item"> 
+                        <h2 class="titulo-ubi"> Los mejores ingredientes </h2> 
+                        <img class="descripcion-img " src="ingredientes.jpg" alt="">
+                        <p>Mantenemos los mejores ingredientes para que tengas la mejor calidad y el mejor sabor</p> 
+                    </div> 
+                    <div class="carrusel-item"> 
+                        <h2 class="titulo-ubi"> El mejor entretenimiento </h2> 
+                        <img class="descripcion-img img3" src="entretenimiento restaurants.jpg" alt="">
+                        <p>Contamos con musica en vivo para que tengas una experiencia completamente superior</p> 
+                    </div>
+                </div> 
+                <div class="cabecera-ubi"  > 
+                    <h2 class="titulo-contenedor">Ubicanos</h2>   
+                    <img class="ubicacion-img" src="ubicacion-img.png" alt="">
+                </div> 
+                <div class="mapa-ubicacion">  
+                    <div class="ubicacion-descripcion">
+                    <h2>Visitanos</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum sit dignissimos facilis, atque cupiditate debitis eius odit unde voluptates facere aliquam totam, officiis inventore repudiandae perspiciatis ducimus. Ab, repudiandae porro.</p>
+                    </div>
+                    <iframe class="ubicacion" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126902.04331487698!2d-75.70218374294727!3d6.304549387563883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442ec447ff6731%3A0x6c6f7040092dd199!2sEcoparque%20Mirador%20Cerro%20El%20Picacho!5e0!3m2!1ses!2sco!4v1676376603322!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
                 </div>
-                <iframe class="ubicacion" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126902.04331487698!2d-75.70218374294727!3d6.304549387563883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e442ec447ff6731%3A0x6c6f7040092dd199!2sEcoparque%20Mirador%20Cerro%20El%20Picacho!5e0!3m2!1ses!2sco!4v1676376603322!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-         
             </div>  
         </div>    
-        <div class="container ">
-            <footer class="py-3 my-4 bg-light-subtle">
-              <ul class="nav justify-content-center border-bottom pb-3 mb-3"> 
-                <li class="nav-item"><a href="#menu" class="nav-link px-2 text-muted">Menú Napols</a></li>
-                <li class="nav-item"><a href="#ubicanos" class="nav-link px-2 text-muted">Localizanos</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contactanos</a></li>
-              </ul>
-              <p class="text-center text-muted">© 2023 Napols Pizza</p>
+        <div class="container-fluid footer basche">
+            <footer class="py-3 bg-danger ">
+                <ul class="nav justify-content-center "> 
+                <li class="nav-item"><a href="#menu" class="nav-link px-2 text-light fw-bold">Menú Napols</a></li>
+                <li class="nav-item"><a href="#ubicanos" class="nav-link px-2 text-light fw-bold">Localizanos</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-light fw-bold">Contactanos</a></li>
+                </ul> 
+                <ul class="redes justify-content-center">
+                    <li><a href="https://www.facebook.com/?locale=es_LA"><i class="fa-facebook fa-brands "></i></a></li>
+                    <li><a href="https://www.instagram.com/"><i class="fa-instagram fa-brands "></i></a></li>
+                    <li><a href="https://www.youtube.com/"><i class="fa-youtube fa-brands "></i></a></li>
+                </ul>
+                <p class="text-center text-light fw-bold">© 2023 Napols Pizza</p>
             </footer>
-        
+        </div>
             
     </section>
         <a class="boton-chat" href="https://wa.me/573016347818?text=Hola%quiero%una%pizza" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    
+        <a  class="boton-carrito" ><i class="fa-sharp fa-solid fa-cart-shopping   "></i></a>
+        <div class="carrito" >
+            <table> 
+                <thead>
+                    <tr class="tabla-encabezado container-fluid">
+                        <td>Imagen</td>
+                        <td>Nombre</td>
+                        <td>Precio</td> 
+                        <td>Cantidad</td>  
+                        <td>X</td> 
+                    </tr>       
+                </table>   
+                <hr class="line">  
+                </thead>  
+                <table>
+                    <tbody class="contenedor-carrito position-relative">
+                    
+                    </tbody>  
+                </table>  
+                <div class="box-precio container-fluid ">  
+                    <p>Total:</p>  
+                    <p class="precio-total">0</p>   
+                    <button class="btn btn-primary bg-succees d-grid gap-2 col-3  rounded-pill">Pagar</button> 
+                </div> 
+            </table>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!--bootstrap-->
-   
+        <script src="js/app.js"></script>
 </body>
 </html> 
